@@ -1,0 +1,31 @@
+import xlsxwriter
+
+
+def write_excel():
+    workbook = xlsxwriter.Workbook('Sorted.xlsx')
+    worksheet = workbook.add_worksheet(u'UserID')
+
+    worksheet.set_column('A:A', 20)
+    bold = workbook.add_format({'bold': True})
+
+    worksheet.write('A1', 'UserID', bold)
+    worksheet.write('A2', '10100002')
+    worksheet.write('A3', '10113353')
+    worksheet.write('A4', '10114087')
+    worksheet.write('A5', '10127337')
+    worksheet.write('A6', '10133121')
+    worksheet.write('B1', 'FinishedClasses', bold)
+    worksheet.write('C1', 'Location', bold)
+    worksheet.write('C2', 'Charlotte')
+    worksheet.write('D1', 'DaysLeft', bold)
+    worksheet.write('B2', '15')
+    worksheet.write('B3', '12')
+    worksheet.write('B4', '10')
+    worksheet.write('B5', '6')
+    worksheet.write('B6', '19')
+    worksheet.write('B7', '=SUM(B2:B6)')
+    workbook.close()
+
+    if __name__ == '__main__':
+        write_excel();
+    print('Success')
